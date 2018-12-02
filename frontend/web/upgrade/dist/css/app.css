@@ -1,0 +1,28 @@
+/*!
+ *   AdminLTE v3.0.0-alpha
+ *   Author: Michael Mutinda
+ *	 House keeping stuff
+ */
+ 
+.help-block{
+   color: red;
+}
+ .help-block-error{
+   color: red;
+}
+
+.bg-overlay-loading{
+	background-color: rgba(0,0,0,.6);
+	color:#F7F7F7;
+    font-size:25px;
+	width: 200px;
+	text-align: center;
+	padding: 10px;
+	border-radius: 10px;
+	position: fixed;
+	top:40%;
+    left: 50%;
+    z-index: 2;
+    cursor: pointer;
+	display:none;
+}

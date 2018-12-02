@@ -1,0 +1,25 @@
+Options +FollowSymlinks
+RewriteEngine On
+
+# deal with admin first
+RewriteCond %{REQUEST_URI} ^/wakili/(admin) 
+RewriteRule ^admin/assets/(.*)$ backend/web/assets/$1 [L]
+RewriteRule ^admin/css/(.*)$ backend/web/css/$1 [L]
+
+RewriteCond %{REQUEST_URI} !^/wakili/backend/web/(assets|css)/  
+RewriteCond %{REQUEST_URI} ^/wakili/(admin)  
+RewriteRule ^.*$ backend/web/index.php [L]
+
+
+RewriteCond %{REQUEST_URI} ^/wakili/(assets|css|IDUPLOADS|DOCUMENTS|js|img|adverts) 
+RewriteRule ^assets/(.*)$ frontend/web/assets/$1 [L]
+RewriteRule ^css/(.*)$ frontend/web/css/$1 [L]
+RewriteRule ^js/(.*)$ frontend/web/js/$1 [L]
+RewriteRule ^img/(.*)$ frontend/web/img/$1 [L]
+RewriteRule ^adverts/(.*)$ frontend/web/adverts/$1 [L]
+
+RewriteCond %{REQUEST_URI} !^/wakili/(frontend|backend)/web/(assets|css|IDUPLOADS|DOCUMENTS|js|img|adverts)/  
+RewriteCond %{REQUEST_URI} !index.php
+RewriteCond %{REQUEST_FILENAME} !-f [OR]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ frontend/web/index.php
